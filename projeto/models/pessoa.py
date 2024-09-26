@@ -17,6 +17,7 @@ class Pessoa:
     def _verificar_nome(self, valor):
         """Método auxiliar para verificação de nome"""
         self.__verificar_nome_tipo_invalido(valor)
+        self.__verificar_nome_vazio(valor)
 
         self.nome = valor
         return self.nome
@@ -43,6 +44,12 @@ class Pessoa:
         if not isinstance(valor, int):
             raise TypeError("A idade deve ser um número inteiro.")
 
+    # Método auxiliar.
+    def __verificar_nome_vazio(self, valor):
+        """Método auxiliar para verificar nomes vazios"""
+        if not valor.strip():
+            raise TypeError("O nome não pode estar vazio.")
+        
     # Método auxiliar.
     def __verificar_idade_negativa(self, valor):
         """Método auxiliar para verificação de idade negativa"""

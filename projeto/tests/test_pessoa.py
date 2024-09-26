@@ -16,6 +16,10 @@ def test_pessoa_idade_tipo_invalido_retorna_mensagem():
     with pytest.raises(TypeError, match="A idade deve ser um número inteiro."):
         Pessoa("Marta", "22")
 
+def test_pessoa_nome_vazio():
+    with pytest.raises(TypeError, match="O nome não pode estar vazio."):
+        Pessoa("", 22)
+
 def test_pessoa_nome_valida(pessoa_valida):
     assert pessoa_valida.nome == "Marta"
 
