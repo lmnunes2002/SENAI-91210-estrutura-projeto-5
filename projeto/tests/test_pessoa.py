@@ -8,7 +8,11 @@ def pessoa_valida():
     pessoa = Pessoa("Marta", 22)
     return pessoa
 
-def test_pessoa_tipo_invalido_retorna_mensagem():
+def test_pessoa_nome_tipo_invalido_retorna_mensagem():
+    with pytest.raises(TypeError, match="O nome deve ser um texto."):
+        Pessoa(22, 22)
+        
+def test_pessoa_idade_tipo_invalido_retorna_mensagem():
     with pytest.raises(TypeError, match="A idade deve ser um número inteiro."):
         Pessoa("Marta", "22")
 
